@@ -31,9 +31,9 @@ def write_responses_to_csv(questions, responses, scores, csv_file):
             writer.writerow([question, response, score])
 
 def main():
-    load_dotenv()  # Load environment variables from .env file
+    load_dotenv()
     openai.api_key = os.getenv('OPENAI_API_KEY')
-    bias_api_key = os.getenv('BIAS_API_KEY')  # Ensure you have this in your .env
+    bias_api_key = os.getenv('BIAS_API_KEY')
 
     questions = read_questions('questions.txt')
     responses = [get_gpt4_response(question) for question in questions[:1]]
